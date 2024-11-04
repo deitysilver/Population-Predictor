@@ -3,21 +3,19 @@ import typescriptLogo from './typescript.svg'
 import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.ts'
 
+window.addEventListener("DOMContentLoaded", (event) => {
+  document.getElementById("predict").addEventListener("click", () => {
+    console.log(document.getElementById("year").value);
+  })
+})
+
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
+  <div class="bg-blue-100 h-screen">
+    <div class="flex flex-col justify-center pt-20 px-[35%]">
+      <h1 class="text-xl font-semibold mx-[10%]">Year:</h1>
+      <input type="number" id="year" class="text-xl px-3 py-1 mx-[10%]" minlength="4" maxlength="4" />
+      <button id="predict" class="rounded-sm mx-[10%] text-white font-semibold px-3 py-1 text-xl bg-emerald-400 hover:bg-emerald-500 active:bg-green-500 mt-3">Predict</button>
     </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
   </div>
 `
 
