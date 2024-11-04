@@ -3,6 +3,10 @@ import typescriptLogo from './typescript.svg'
 import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.ts'
 
+const calculateRate = (initial_rate, n) => {
+  return initial_rate - 0.0001 * n;
+}
+
 window.addEventListener("DOMContentLoaded", (event) => {
   document.getElementById("predict").addEventListener("click", () => {
     console.log(document.getElementById("year").value);
