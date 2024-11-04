@@ -8,8 +8,13 @@ const calculateRate = (n) => {
 };
 
 const calculatePopulation = (year) => {
+  if (year < 2011) {
+    document.getElementById("result").innerText = "Year prior to 2011 cannot be calculated";
+    
+    return;
+  }
   let n = parseInt(year) - 2011;
-  let currentPopulation =  711000000;
+  let currentPopulation =  7110000000;
   let currentRate;
 
   for (let i = 0; i < n; i++) {
@@ -17,8 +22,7 @@ const calculatePopulation = (year) => {
     currentPopulation = currentPopulation * (1 + currentRate);
   }
   
-  document.getElementById("result").value = currentPopulation;
-  console.log(currentPopulation);
+  document.getElementById("result").innerText = currentPopulation.toFixed(0);
 
   return;
 };
@@ -37,7 +41,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       <button id="predict" class="rounded-sm mx-[10%] text-white font-semibold px-3 py-1 text-xl bg-emerald-400 hover:bg-emerald-500 active:bg-emerald-500 active:text-gray-200 mt-3">
         Predict
       </button>
-      <h1 class="text-3xl font-semibold mx-[10%]" id="result"></h1>
+      <h1 class="text-3xl font-semibold text-center mt-3" id="result"></h1>
     </div>
   </div>
 `
