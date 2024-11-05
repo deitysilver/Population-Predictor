@@ -3,19 +3,34 @@ import typescriptLogo from './typescript.svg'
 import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.ts'
 
+let initialRate = 0.0127;
+
 const calculateRate = (n) => {
-  return 0.0127 - 0.0001 * n;
+  return initialRate - 0.0001 * n;
 };
 
 const calculatePopulation = (year) => {
   if (year < 2011) {
-    document.getElementById("result").innerText = "Year prior to 2011 cannot be calculated";
+    ydocument.getElementById("result").innerText = "Year prior to 2011 cannot be calculated";
     
     return;
   }
-  let n = parseInt(year) - 2011;
-  let currentPopulation =  7110000000;
-  let currentRate;
+
+  let n, currentPopulation, currentRate;
+  
+  if (year >= 2023) {
+    n = parseInt(year) - 2023;
+    currentPopulation = 8090000000;
+    initialRate = 0.0088;
+  } else if (year < 2011) {
+    document.getElementById("result").innerText = "Year prior to 2011 cannot be calculated";
+    
+    return;
+  } else {
+    n = parseInt(year) - 2011;
+    currentPopulation = 7110000000;
+    initialRate = 0.0127;
+  }
 
   for (let i = 0; i < n; i++) {
     currentRate = calculateRate(i);
