@@ -29,7 +29,8 @@ const calculatePopulation = (year) => {
 
 window.addEventListener("DOMContentLoaded", (event) => {
   document.getElementById("predict").addEventListener("click", () => {
-    calculatePopulation(document.getElementById("year").value);
+    const yearInput = document.getElementById("year") as HTMLInputElement;
+    calculatePopulation(yearInput.value);
   });
 })
 
@@ -45,5 +46,3 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     </div>
   </div>
 `
-
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
