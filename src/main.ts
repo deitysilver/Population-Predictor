@@ -10,12 +10,6 @@ const calculateRate = (n) => {
 };
 
 const calculatePopulation = (year) => {
-  if (year < 2011) {
-    ydocument.getElementById("result").innerText = "Year prior to 2011 cannot be calculated";
-    
-    return;
-  }
-
   let n, currentPopulation, currentRate;
   
   if (year >= 2023) {
